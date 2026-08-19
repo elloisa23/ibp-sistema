@@ -866,7 +866,7 @@ function getFichaHTML(m){
     
     ${SEC(3,'INFORMAÇÕES FAMILIARES')}
     <tr>${CB('É Casado(a)?',['Sim','Não'],m?[m.casado?'Sim':'Não']:[])}${L('Nome do Cônjuge',v('conjuge'),'40%')}${CB('Possui Filhos?',['Sim','Não'],m?[(m.filhos&&m.filhos.length?'Sim':'Não')]:[])}<td style="padding:4px 8px"></td></tr>
-    <tr>${L('1. Filho(a)',m&&m.filhos&&m.filhos[0]?m.filhos[0]:'')}${L('2. Filho(a)',m&&m.filhos&&m.filhos[1]?m.filhos[1]:'')}${L('3. Filho(a)',m&&m.filhos&&m.filhos[2]?m.filhos[2]:'')}${L('4. Filho(a)',m&&m.filhos&&m.filhos[3]?m.filhos[3]:'');}</tr>
+    <tr>${L('1. Filho(a)',m&&m.filhos&&m.filhos[0]?m.filhos[0]:'')}${L('2. Filho(a)',m&&m.filhos&&m.filhos[1]?m.filhos[1]:'')}${L('3. Filho(a)',m&&m.filhos&&m.filhos[2]?m.filhos[2]:'')}${L('4. Filho(a)',m&&m.filhos&&m.filhos[3]?m.filhos[3]:'')}</tr>
     
     ${SEC(4,'INFORMAÇÕES EXTRAS')}
     <tr>
