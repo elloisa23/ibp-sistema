@@ -903,7 +903,6 @@ function getFichaHTML(m){
   </div>
   </body></html>`;
 }
-}
 function gerarFichaBrancaPDF(){const w=window.open('','_blank');w.document.write(getFichaHTML(null));w.document.close();w.print();}
 function gerarFichaMembroPDF(){const m=allMembros.find(x=>x.id===editMId);if(!m)return;const w=window.open('','_blank');w.document.write(getFichaHTML(m));w.document.close();w.print();}
 function getFichaHTML(m){
