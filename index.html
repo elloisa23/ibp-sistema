@@ -832,4 +832,25 @@ function gerarFichaMembroPDF(){
 function gerarFichaBrancaPDF(){
   gerarFichaMembroPDF();
 }
-
+(async function initAuth(){
+  const {data:{session}} = await db.auth.getSession();
+  if(session){
+    const {data:u, error:ue} = await db.from('usuarios').select('*').eq('id',session.user.id).single();
+    if(ue || !u || !u.ativo){
+      await db.auth.signOut();
+      document.getElementById('loading-screen').classList.add('hidden');
+      document.getElementById('auth-screen').classList.remove('hidden');
+      return;
+    }
+    CU={nome:u.nome,cargo:u.cargo,isAdmin:u.is_admin,tempPw:u.temp_pw,id:u.id};
+    if(u.temp_pw){
+      document.getElementById('loading-screen').classList.add('hidden');
+      document.getElementById('force-pw-screen').classList.remove('hidden');
+      return;
+    }
+    await enterApp();
+  } else {
+    document.getElementById('loading-screen').classList.add('hidden');
+    document.getElementById('auth-screen').classList.remove('hidden');
+  }
+})();
